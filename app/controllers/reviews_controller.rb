@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
 
-  def new
-    set_restaurant
-    @review = Review.new
-  end
+  # def new
+  #   set_restaurant
+  #   @review = Review.new
+  # end
 
   def create
     set_restaurant
@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to restaurant_path(@restaurant)
     else
-      render :new
+      render "restaurants/show"
     end
   end
 

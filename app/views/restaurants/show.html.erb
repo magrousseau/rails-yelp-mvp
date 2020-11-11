@@ -12,6 +12,19 @@
     <br>
   <% end %>
 
-<%= link_to "add a review", new_restaurant_review_path(@restaurant) %> |
+  <h1>add a review</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+      <%= f.input :rating, collection: Review::RATINGS, prompt: "Select one" %>
+      <%= f.input :content %>
+      <%= f.submit "create", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <%= link_to "back to list", restaurants_path %>
 
